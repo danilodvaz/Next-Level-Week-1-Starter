@@ -1,0 +1,79 @@
+#modal {
+    height: 100vh;/*Viewport Height. Divide a tela em 100 na vertical*/
+    width: 100vw;/*Viewport width. Divide a tela em 100 na horizontal*/
+    background-color: #0e0a14ef;/*Os dois últimos caracteres são o alpha. Controla a opacidade da cor. Deixa ela transparente.*/
+    position: fixed;/*Deixa fixo o elemento em algum ponto.*/
+    top: 0;/*Alinha o elemnto fixo no topo da página*/
+    display: flex;/*Posicionamento dos elementos que estão dentro da div modal, que no caso, só tem a div content*/
+    justify-content: center;/*Como só tem a div content, ela ficará cetralizada na horizontal (pode muder de acordo com a orientação do flex - "flex-direction")*/
+    align-items: center;/*Como só tem a div content, ela ficará centralizada na vertical (pode muder de acordo com a orientação do flex - "flex-direction")*/
+    transition: 400ms;
+}
+
+/*Quando colocar o seletor junto, significa que existe uma classe 'hide' dentro do id 'modal'
+Quando tem o espaço, significa que está procurando por aquela classe*/
+#modal.hide {
+    display: none;/*Esconde o que foi selecionado*/
+}
+
+#modal .content {
+    color: white;
+    width: 420px;
+}
+
+#modal .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+#modal .header a {
+    background-image: url("../assets/x.svg");/*Retorna a imagem*/
+    width: 20px;/*Define uma largura para a, para assim aparecer a imagem corretamente*/
+    height: 20px;/*Define uma altura para a, para assim aparecer a imagem corretamente*/
+    display: flex;/*Em certos casos é necessário para exibir a imagem*/
+    /*Para tirar o texto 'Fechar' e deixar apenas a imagem, de forma que os leitores de conteudo ainda consigam ler o fechar,
+    coloca uma font mínima*/
+    font-size: 0.01px;
+}
+
+#modal .header h1 {
+    color: white;
+    font-size: 36px;
+    line-height: 42px;/*Aumenta a altura da linha. O texto continua do mesmo tamanho, mas a linha fica mais alta*/
+}
+
+#modal form label {
+    font-size: 14px;
+    line-height: 16px;
+    display: block;/*É utilizado o display block, pois o display inline não aceita margin*/
+    margin-bottom: 8px;
+}
+
+#modal form .field {
+    display: flex;
+}
+
+#modal form input {
+    flex: 1;
+    background-color: #f0f0f5;
+    border-radius: 8px 0 0 8px;/*Sentido horário*/
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #6c6c80;
+}
+
+#modal form button {
+    width: 72px;
+    height: 72px;
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: 0 8px 8px 0;/*Sentido horário*/
+    transition: 400ms;
+}
+
+#modal form button:hover {
+    background-color: #2fb85e;
+}

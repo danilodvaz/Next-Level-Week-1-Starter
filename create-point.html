@@ -1,0 +1,130 @@
+<!--TAG/ELEMENTO COMENTÁRIO-->
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8"><!--Caracteres especiais. Ç ~ ^-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Caber em tela de diversos tamanhos-->
+    <title>Criar um ponto de coleta</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/crete-point.css">
+    
+    <link rel="stylesheet" href="/styles/responsive.css">
+</head>
+
+<body>
+
+    <div id="page-create-point"><!--ID. Identificador de um elemento. Nome único para esse elemnto.-->
+        
+        <header>
+            <img src="/assets/logo.svg" alt="Logomarca">
+            
+            <a href="/index.html">
+                <span></span>
+                Voltar para home
+            </a>
+        </header>
+
+        <form action="">
+            <h1>Cadastro do ponto de coleta</h1>
+
+            <fieldset><!--É uma coleção de campos. Poderia ser uma div, mas é aplicado a ideia de html semântico-->
+                <legend><!--Cria um título para o fieldset, posicionando ele no topo a esquerda do fieldset-->
+                    <h2>Dados da entidade</h2>
+                </legend>
+
+                <div class="field">
+                    <label for="name">Nome da entidade</label><!--Atriburo 'for' serve para dizer a qual onput o label pertence-->
+                    <input type="text" name="name" required><!--Atributo 'name' é usado para identificar e pegar o valor do input-->
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="address">Endereço</label>
+                        <input type="text" name="address" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="address2">Número/Complemento</label>
+                        <input type="text" name="address2" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="uf">Estado</label>
+                        <select name="uf" required>
+                            <option value="">Selecione o Estado</option>
+                        </select>
+
+                        <input type="hidden" name="state">
+                    </div>
+
+                    <div class="field">
+                        <label for="city">Cidade</label>
+                        <select name="city" disabled required>
+                            <option value="">Selecione a Cidade</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2>Itens de coleta</h2>
+                </legend>
+
+                <div class="items-grid">
+                    <!--'data' (dataset) é um atributo especial do html que te permite criar atributos.
+                    No js, é possível acessar como dataset
+                    Após o '-' ele pode receber qualquer nome-->
+                    <li data-id="1"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/lampadas.svg" alt="Lâmpadas">
+                        <span>Lâmpadas</span>
+                    </li>
+
+                    <li data-id="2"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/baterias.svg" alt="Pilhas e Baterias">
+                        <span>Pilhas e Baterias</span>
+                    </li>
+
+                    <li data-id="3"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/papeis-papelao.svg" alt="Papéis e Papelão">
+                        <span>Papéis e Papelão</span>
+                    </li>
+
+                    <li data-id="4"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/eletronicos.svg" alt="Resíduos Eletrônicos">
+                        <span>Resíduos Eletrônicos</span>
+                    </li>
+
+                    <li data-id="5"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/organicos.svg" alt="Resíduos Orgânicos">
+                        <span>Resíduos Orgânicos</span>
+                    </li>
+
+                    <li data-id="6"><!--Elemento utilizado para criar uma lista-->
+                        <img src="/assets/oleo.svg" alt="Óleo de Cozinha">
+                        <span>Óleo de Cozinha</span>
+                    </li>
+                </div>
+
+                <input type="hidden" name="items">
+            </fieldset>
+
+            <button type="submit"><!--Vai enviar o formulário-->
+                Cadastrar ponto de coleta
+            </button>
+        </form>
+
+    </div>
+
+    <!--Injeta o js no documento-->
+    <script src="/scripts/create-point.js"></script>
+
+</body>
+
+</html>

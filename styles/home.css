@@ -1,0 +1,111 @@
+/*Id #
+Estilo por identificador*/
+#page-home {
+    height: 100vh;/*ViewportHigth. É toda a parte branca da tela. O que o navgador ta mostrando na hora*/
+    background: url('../assets/home-background.svg') no-repeat;
+    background-position: 35vw bottom;/*Por default, background é top-left. Com o position da pra ajustar x y. ViewportWidth.*/
+}
+
+#page-home header {
+    display: flex;/*Deixa o tamanho das caixas flexivel*/
+    align-items: center;/*Alinhar no eixo y*/
+    justify-content: space-between;/*Justifica as caixas*/
+    margin-top: 48px;
+}
+
+#page-home header a {
+    display: flex;/*Deixa o tamanho das caixas flexivel*/
+    color: var(--title-color);
+    font-weight: 700;/*pode ser numérico ou palavra*/
+}
+
+#page-home header a span {
+    background-image: url('../assets/log-in.svg');
+    width: 20px;
+    height: 20px;
+
+    margin-right: 16px;
+}
+
+#page-home main {
+    max-width: 500px;
+    display: flex;/*Deixa o tamanho das caixas flexivel*/
+    flex: 1;/*Preenche todo o espaço da caixa de forma igual, seguindo o jutify*/
+    flex-direction: column;/*Muda a disposição das caixas do display flex de horizontal para vertical*/
+    justify-content: center;/*Centraliza as caixas*/
+}
+
+#page-home main h1 {
+    font-size: 54px;
+}
+
+#page-home main p {
+    font-size: 24px;
+    line-height: 38px;/*Formatação de texto. Define altura para linha, dando espaçamento*/
+    margin-top: 24px;
+}
+
+#page-home main a {
+    width: 100%;
+    max-width: 360px;
+    height: 72px;
+    border-radius: 8px;/*Arredonda a borda da caixa. Funciona com o esquema de sentido horário*/
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    background-color: var(--primary-color);
+    /*O transition tenta aplicar a transição em todas as propriedades que aceitam essa transição, como largura e altura.
+    Para especificar em qual atributo deve ser aplicado, basta colocar o nome na frente do tempo.*/
+    transition: 400ms;/*Aplica um tempo para qualquer transição que seja feito no elemento. Deixa mais suave a transição*/
+}
+
+#page-home main a:hover {/*hover -> Aplica o estilo no elemento quando mouse passar por cima dele.*/
+    background-color: #2fb86e;
+}
+
+#page-home main a span {
+    width: 72px;
+    height: 72px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.08);/*A letra 'a' é referente a transparência da cor. Vai de 0 até 1*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-home main a strong {
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+
+
+/*Pseudo elemento ::
+São elementos que não existem no html, mas são criado pelo css*/
+#page-home main a span::after {
+    content: "";
+    background-image: url('../assets/search.svg');
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/*Classe . (ponto)
+Estilo por classe. Todas as tags com essa classe utilizarão o estilo.*/
+#page-home .content {
+    width: 90%;/*Deixa a largura flexivel em 90% da tela*/
+    max-width: 1100px;/*Define uma largura máxima.*/
+    /*Define margem.
+    x -> aplica para todos os lados
+    x y -> x top/bottom - y right/left
+    x y z -> x top - y right/left - z bottom
+    x y z a -> x top - y right - z bottom - a left*/
+    margin: 0 auto;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}

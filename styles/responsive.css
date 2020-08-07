@@ -1,0 +1,48 @@
+/*media @
+Conjunto de regras que são aplicadas de acordo com a condiação entre parenteses
+Propriedade possibilitada devido a linha meta de name "viewport" adicionado no head do html
+Define regra a ser aplicada para uma tela com largura menor que 900px*/
+@media (max-width: 900px) {
+    #page-home {
+        background-position-x: 70vw;
+    }
+
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home header a {
+        position: absolute;/*Ela pega aquela caixa e coloca em um plano a cima do restante. Cria um andar.*/
+        bottom: 48px;/*Distância entre a parte de baixo da tela*/
+        left: 50%;
+        transform: translateX(-50%);/*Acha o ponto médio de uma caixa*/
+    }
+
+    #page-home main {
+        align-items: center;
+    }
+
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #page-search-results .cards img {
+        height: 250px;
+    }
+}
+
+/*Define regra a ser utilizada quando a largura for maior que 1700px*/
+@media (min-width: 1700px) {
+    #page-home {
+        background-position-x: 40vw;
+    }
+}
+
+/*Define regra a ser utilizada quando a altura for menor que 760px*/
+@media (max-height: 700px) {
+    #page-home {
+        background-position-y: 100px;
+    }
+}
+

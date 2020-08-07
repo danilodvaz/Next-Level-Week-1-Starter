@@ -1,0 +1,39 @@
+/*COMENTÁRIO*/
+
+/*Referencia a raiz do documento html
+É possível criar uma variável*/
+:root {
+    --title-color: #322153;
+    --primary-color: #34cb79;
+}
+
+
+
+/*Seletores
+Estilo por seletor. Todas as tags 'html' utilizarão o estilo.*/
+* {/*Referncia a todos os seletores*/
+    margin: 0;
+    padding: 0;
+    /*Por padrão do css o tamanho da caixa é dado pelo conteudo (box-sizing: content-box).
+    Com isso o padding não é considerado no max-width, pois ele entra por fora do conteudo.
+    Usando o border-box, ele começa a considerar o tamanho da caixa de acordo com a borda.*/
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialiased;/*Deixa a fonte mais suave (Chrome)*/
+}
+
+a {
+    text-decoration: none;/*Tirar a linha do link*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--title-color);
+}

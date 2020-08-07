@@ -1,0 +1,159 @@
+form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 64px;/*Preenchimento da caixa. Parte interna*/
+    margin: 80px auto;
+    max-width: 730px;
+}
+
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+}
+
+form legend h2 {
+    font-size: 24px;
+}
+
+form .field {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+form .field-group {
+    display: flex;
+}
+
+/*Dentro da classe field-goup eu tenho duas classes field.
+Para pegar apenas a segunda, eu uso o seletor da seguinte forma:*/
+form .field-group .field + .field {
+    margin-left: 24px;
+}
+
+/*Quando coloca a vírgula, ele aplica as propriedades para os dois seletores*/
+form input,
+form select {
+    background-color: #f0f0f5;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    /*Retira a linha preta que fica envolta do input, quando o mesmo estiver selecionado.*/
+    /* outline: none; */
+}
+
+form select {
+    /*Retira formatações que o navegador coloca no select.
+    Vai resetar estas formatações vindas do navegador, pois em algumas versões de alguns navegadores,
+    essas formatações colocadas automáticas quebravam a formatação colocada no código.*/
+    -webkit-appearance: none;/*Reseta no Google Chrome*/
+    -moz-appearance: none;/*Reseta no Mozilla Firefox*/
+    appearance: none;/*Reseta de forma geral*/
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 40px;
+    /*O transition tenta aplicar a transição em todas as propriedades que aceitam essa transição, como largura e altura.
+    Para especificar em qual atributo deve ser aplicado, basta colocar o nome na frente do tempo.*/
+    transition: background-color 400ms;
+}
+
+form button:hover {
+    background-color: #2fb86e;
+}
+
+
+
+#page-create-point {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;/*Alinhamento da caixa (pelo lado de fora)*/
+}
+
+#page-create-point header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+}
+
+#page-create-point header a {
+    color: var(--title-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#page-create-point header a span {
+    background-image: url('../assets/arrow-left.svg');
+    display: flex;
+    width: 20px;
+    height: 24px;
+    margin-right: 16px;
+}
+
+
+
+.items-grid {
+    display: grid;/*Permite configurar linhas e colunas, montando uma tabela.*/
+    grid-template-columns: 1fr 1fr 1fr;/*Criando 3 colunas, utilizando fração, onde o tamanho de cada coluna será dinâmico.*/
+    gap: 16px;/*Propriedade do grid, para colocar separação entre as células do grid*/
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none;/*Tirar as bolinhas que a lista possui*/
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;
+    padding: 32px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;/*Muda a setinha do mouse, sinalizado como algo clicável.*/
+}
+
+.items-grid li span {
+    flex: 1;/*Está ligado ao display flex do 'li'. Permite que o elemento ocupe o todo o espaço que tem*/
+    display: flex;
+    align-items: center;
+    color: var(--title-color);
+    margin-top: 12px;
+}
+
+/* Quando coloca o seletor junto, significa que existe um li com essa classe 'selected'.
+Se tivesse colocado separado, era pra procurar elementos dentro de 'li' com a classe 'selected'*/
+.items-grid li.selected {
+    background: #e1faec;
+    border: 2px solid #34cb79;
+}
+
+.items-grid li img,
+.items-grid li span {
+    pointer-events: none;/*Retira os eventos do 'cursor: pointer' adicionado no elemnto li, dos elementos img e span que estão dentros do li.*/
+}
