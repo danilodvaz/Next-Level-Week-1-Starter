@@ -19,15 +19,8 @@
 
     <div id="page-create-point"><!--ID. Identificador de um elemento. Nome único para esse elemnto.-->
         
-        <header>
-            <img src="/assets/logo.svg" alt="Logomarca">
-            
-            <!-- Utilizando o nome da rota criado no server express. "/" direciona para o index.html -->
-            <a href="/">
-                <span></span>
-                Voltar para home
-            </a>
-        </header>
+        <!-- Comando "include", do nunjucks, inclui um html de outro arquivo -->
+        {% include "partials/page-header.html" %}
 
         <form action="">
             <h1>Cadastro do ponto de coleta</h1>
