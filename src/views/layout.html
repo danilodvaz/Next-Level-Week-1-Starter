@@ -1,0 +1,39 @@
+<!--TAG/ELEMENTO COMENTÁRIO-->
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8"><!--Caracteres especiais. Ç ~ ^-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Caber em tela de diversos tamanhos-->
+
+    {% block title %}
+        {# É possível definir um default para o bloco, caso o bloco não seja substituído, ele utilizará o padrão #}
+        <title>Ecoleta</title>
+    {% endblock title %}
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    {# Cria uma espécie de variável que será substituída por um pedaço de código.
+    Durante a reinderização pelo template engine, se ele não achar um pedaço de código para colocar aqui, não é exibido nada #}
+    {% block styles %}
+    {% endblock styles %}
+
+    <!-- Deixa por último, para não ser substituído -->
+    <link rel="stylesheet" href="/styles/responsive.css">
+</head>
+<body>
+    {# Chama variável nunjucks #}
+    <div id="{{ bodyId }}"><!--ID. Identificador de um elemento. Nome único para esse elemnto.-->
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>
