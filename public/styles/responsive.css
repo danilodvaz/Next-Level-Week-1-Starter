@@ -30,6 +30,14 @@ Define regra a ser aplicada para uma tela com largura menor que 900px*/
     #page-search-results .cards img {
         height: 250px;
     }
+
+    #page-create-point .field-group {
+        flex-direction: column;
+    }
+
+    #page-create-point .field-group .field + .field{
+        margin-left: 0;
+    }
 }
 
 /*Define regra a ser utilizada quando a largura for maior que 1700px*/

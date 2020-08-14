@@ -1,7 +1,7 @@
 {# Herda o que existe no layout #}
 {% extends "layout.html" %}
 
-{% set bodyId = "page-create-point" %}
+{% set pageId = "page-create-point" %}
 
 {% block title %}
     <title>Criar um ponto de coleta</title>
@@ -23,9 +23,19 @@
                 <h2>Dados da entidade</h2>
             </legend>
 
-            <div class="field">
-                <label for="name">Nome da entidade</label><!--Atriburo 'for' serve para dizer a qual onput o label pertence-->
-                <input type="text" name="name" required><!--Atributo 'name' é usado para identificar e pegar o valor do input-->
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Nome da entidade</label><!--Atriburo 'for' serve para dizer a qual onput o label pertence-->
+                    <input type="text" name="name" required><!--Atributo 'name' é usado para identificar e pegar o valor do input-->
+                </div>
+                <div class="field">
+                    <label for="image">Imagem da entidade</label><!--Atriburo 'for' serve para dizer a qual onput o label pertence-->
+                    <input
+                        type="url"
+                        name="image"
+                        placeholder="http://"
+                        required><!--Atributo 'name' é usado para identificar e pegar o valor do input-->
+                </div>
             </div>
 
             <div class="field-group">
@@ -62,6 +72,7 @@
         <fieldset>
             <legend>
                 <h2>Itens de coleta</h2>
+                <span>Selecione um ou mais itens abaixo</span>
             </legend>
 
             <div class="items-grid">
