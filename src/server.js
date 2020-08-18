@@ -2,10 +2,14 @@
 const express = require("express"); //Pega a classe express e coloca na variável
 const server = express(); //Inicia o express
 
+// Pega o objeto db que foi exportado no arquivo db.js
+const db = require("./database/db");
+
 // Dependência "nunjucks" é um template engine.
 // Deixa os htmls dinâmicos, perminto a utilização de variáveis, estruturas de repetição e condição
 // Nesse caso será configurado para funcionar junto com o "express"
 const nunjucks = require("nunjucks");
+
 // Configuração do nunjucks.
 // O primeiro parâmetro é o local onde estão os htmls
 // O segundo, é um objeto que informa propriedades para configuração, como o servidor que está sendo utilizado
@@ -43,7 +47,19 @@ server.get("/create-point", (req, res) => {
 });
 
 server.get("/search", (req, res) => {
-    return res.render("search-results.html");
+
+    db.all(`SELECT * FROM places`, function(err, rows) {
+        if(err) {
+            return console.log(err);
+        }
+
+        const total = rows.length;
+
+        // No objeto do js, quando o nome da variável é o mesmo nome da propriedade, não precisa passar o nome da propriedade
+        // No caso do { total: total }, poderia ser apenas { total }
+        return res.render("search-results.html", {places: rows, total: total});
+    });
+
 });
 
 // Ligar o servidor
