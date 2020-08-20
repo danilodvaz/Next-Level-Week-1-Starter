@@ -23,6 +23,9 @@ nunjucks.configure("src/views", {
 // Com isso eu consigo acessar os arquivos pelo servidor na url.
 server.use(express.static("public"));
 
+// Configurar o express para receber o body da requisição (POST)
+server.use(express.urlencoded({ extended: true }));
+
 // Configurar os caminho da aplicação (rotas)
 // "/" -> Página inicial
 // get -> Verbos http (get, post, put, delete...)
@@ -43,12 +46,66 @@ server.get("/", (req, res) => {
 });
 
 server.get("/create-point", (req, res) => {
+    // Retonar as query strings da url
+    // req.query;
+
     return res.render("create-point.html");
+});
+
+server.post("/savepoint", (req, res) => {
+    // Retorna o que foi enviado pelo POST
+    // Foi necessário configurar o "express" para utilizar o body
+    // req.body
+
+    const query = `
+        INSERT INTO places (
+            image,
+            name,
+            address,
+            address2,
+            state,
+            city,
+            items
+        ) VALUES (
+            ?, ?, ?, ?, ?, ?, ?
+        );
+    `;
+
+    const values = [
+        req.body.image,
+        req.body.name,
+        req.body.address,
+        req.body.address2,
+        req.body.state,
+        req.body.city,
+        req.body.items
+    ];
+
+    // Não é possível utilizar a arrow function, quando está sendo utilizado o 'this' dentro da função.
+    function afterInsertData(err) {
+        if(err) {
+            console.log(err);
+            return res.send("Erro no cadastro!");
+        }
+
+        console.log("Cadastrado com sucesso");
+        console.log(this);
+
+        return res.render("create-point.html", { saved: true });
+    }
+
+    db.run(query, values, afterInsertData);
 });
 
 server.get("/search", (req, res) => {
 
-    db.all(`SELECT * FROM places`, function(err, rows) {
+    const search = req.query.search;
+
+    if(search == "") {
+        // return res.render("search-results.html", { total: 0 });
+    }
+
+    db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function(err, rows) {
         if(err) {
             return console.log(err);
         }
@@ -57,7 +114,7 @@ server.get("/search", (req, res) => {
 
         // No objeto do js, quando o nome da variável é o mesmo nome da propriedade, não precisa passar o nome da propriedade
         // No caso do { total: total }, poderia ser apenas { total }
-        return res.render("search-results.html", {places: rows, total: total});
+        return res.render("search-results.html", { places: rows, total: total });
     });
 
 });

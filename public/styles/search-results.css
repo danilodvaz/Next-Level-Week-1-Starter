@@ -1,13 +1,18 @@
+body {
+    background-color: white;
+}
+
 /*Pseudo elemento ::
 São elementos que não existem no html, mas são criado pelo css*/
 body::after {
     content: "";
-    background: white;
-    position: fixed;
-    top: 260px;/*Posicionamento do position fixed. Vem por fora da pargin.*/
-    right: 0;/*Posicionamento do position fixed. Vem por fora da pargin.*/
-    left: 0;/*Posicionamento do position fixed. Vem por fora da pargin.*/
-    bottom: 0;/*Posicionamento do position fixed. Vem por fora da pargin.*/
+    background: #f0f0f5;
+    position: absolute;
+    top: 0;/*Posicionamento do position. Vem por fora da pargina.*/
+    right: 0;/*Posicionamento do position. Vem por fora da pargina.*/
+    left: 0;/*Posicionamento do position. Vem por fora da pargina.*/
+    bottom: 0;/*Posicionamento do position. Vem por fora da pargina.*/
+    height: 16rem;/*rem é uma unidade relativa, referemte a página root.*/
     z-index: -1;/*O 'z' é referente a profundidade*/
 }
 

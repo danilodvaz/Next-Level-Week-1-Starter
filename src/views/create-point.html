@@ -9,13 +9,17 @@
 
 {% block styles %}
     <link rel="stylesheet" href="/styles/crete-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
 {% endblock styles %}
 
 {% block content %}
     <!-- Comando "include", do nunjucks, inclui um html de outro arquivo -->
     {% include "partials/page-header.html" %}
 
-    <form action="">
+    <!-- Por padrão os formulários utilizam o method GET.
+     Para usar o POST, deve ser adicionado a propriedade.
+     A propriedade "action", é para onde o formulário vai enviar as informações. -->
+    <form action="/savepoint" method="POST">
         <h1>Cadastro do ponto de coleta</h1>
 
         <fieldset><!--É uma coleção de campos. Poderia ser uma div, mas é aplicado a ideia de html semântico-->
@@ -79,32 +83,32 @@
                 <!--'data' (dataset) é um atributo especial do html que te permite criar atributos.
                 No js, é possível acessar como dataset
                 Após o '-' ele pode receber qualquer nome-->
-                <li data-id="1"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Lâmpadas"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/lampadas.svg" alt="Lâmpadas">
                     <span>Lâmpadas</span>
                 </li>
 
-                <li data-id="2"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Pilhas e Baterias"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/baterias.svg" alt="Pilhas e Baterias">
                     <span>Pilhas e Baterias</span>
                 </li>
 
-                <li data-id="3"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Papéis e Papelão"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/papeis-papelao.svg" alt="Papéis e Papelão">
                     <span>Papéis e Papelão</span>
                 </li>
 
-                <li data-id="4"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Resíduos Eletrônicos"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/eletronicos.svg" alt="Resíduos Eletrônicos">
                     <span>Resíduos Eletrônicos</span>
                 </li>
 
-                <li data-id="5"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Resíduos Orgânicos"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/organicos.svg" alt="Resíduos Orgânicos">
                     <span>Resíduos Orgânicos</span>
                 </li>
 
-                <li data-id="6"><!--Elemento utilizado para criar uma lista-->
+                <li data-id="Óleo de Cozinha"><!--Elemento utilizado para criar uma lista-->
                     <img src="/assets/oleo.svg" alt="Óleo de Cozinha">
                     <span>Óleo de Cozinha</span>
                 </li>
@@ -118,6 +122,12 @@
         </button>
     </form>
 {% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {% include "partials/point-created.html" %}
+    {% endif %}
+{% endblock modal%}
 
 {% block scripts %}
     <script src="/scripts/create-point.js"></script>
