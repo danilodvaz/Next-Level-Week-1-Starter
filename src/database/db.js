@@ -1,5 +1,5 @@
 // Importar a dependência do sqlite3
-// O método 'verbose' é algo como um log, ele exibe mensagens de erro no terminar.
+// O método 'verbose' é algo como um log, ele exibe mensagens de erro no terminal.
 const sqlite3 = require("sqlite3").verbose();
 
 // Cria um objeto 'db' a partir da classe 'Database' dentro do sqlite3

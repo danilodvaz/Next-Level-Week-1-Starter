@@ -26,6 +26,9 @@ server.use(express.static("public"));
 // Configurar o express para receber o body da requisição (POST)
 server.use(express.urlencoded({ extended: true }));
 
+// Ligar o servidor
+server.listen(3000);
+
 // Configurar os caminho da aplicação (rotas)
 // "/" -> Página inicial
 // get -> Verbos http (get, post, put, delete...)
@@ -118,6 +121,3 @@ server.get("/search", (req, res) => {
     });
 
 });
-
-// Ligar o servidor
-server.listen(3000);
