@@ -6,7 +6,7 @@ const server = express(); //Inicia o express
 const db = require("./database/db");
 
 // Dependência "nunjucks" é um template engine.
-// Deixa os htmls dinâmicos, perminto a utilização de variáveis, estruturas de repetição e condição
+// Deixa os htmls dinâmicos, permitindo a utilização de variáveis, estruturas de repetição e condição
 // Nesse caso será configurado para funcionar junto com o "express"
 const nunjucks = require("nunjucks");
 
@@ -103,10 +103,6 @@ server.post("/savepoint", (req, res) => {
 server.get("/search", (req, res) => {
 
     const search = req.query.search;
-
-    if(search == "") {
-        // return res.render("search-results.html", { total: 0 });
-    }
 
     db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function(err, rows) {
         if(err) {
