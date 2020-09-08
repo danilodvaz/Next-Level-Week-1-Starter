@@ -13,3 +13,18 @@ buttonSearch.addEventListener("click", () => {
 close.addEventListener("click", () => {
     modal.classList.add("hide");
 });
+
+// Adicionado evento ao pressionar teclas
+// Foi utilizado o keydown e não o keypress, pois durante as pesquisa,
+// foi constatado maior compatibilidade do keydown.
+document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+        case "Escape":
+            modal.classList.add("hide");
+            break;
+        
+        // Adicionar o caso de apertar o enter sem o foco no input
+        // case "Enter":
+            
+    }
+});
