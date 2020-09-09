@@ -1,9 +1,10 @@
-const buttonSearch = document.querySelector("#page-home main a");
+const buttonOpenSearch = document.querySelector("#page-home main a");
 const modal = document.querySelector("#modal");
 const close = document.querySelector("#modal .header a");
 const inputSearch = document.querySelector("#modal form input[name=search]");
+const buttonSearch = document.querySelector("#modal form button");
 
-buttonSearch.addEventListener("click", () => {
+buttonOpenSearch.addEventListener("click", () => {
     // Remove a classe hide, poderia tbm ter usado o toggle
     modal.classList.remove("hide");
     // Seta o foco para o input, sem precisar do usuário clicar nele.
@@ -11,7 +12,7 @@ buttonSearch.addEventListener("click", () => {
 });
 
 close.addEventListener("click", () => {
-    modal.classList.add("hide");
+    closeModal();
 });
 
 // Adicionado evento ao pressionar teclas
@@ -20,11 +21,16 @@ close.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
         case "Escape":
-            modal.classList.add("hide");
+            closeModal();
             break;
         
-        // Adicionar o caso de apertar o enter sem o foco no input
-        // case "Enter":
-            
+        case "Enter":
+            buttonSearch.click();
+            break;
     }
 });
+
+function closeModal() {
+    modal.classList.add("hide");
+    inputSearch.value = "";
+}
