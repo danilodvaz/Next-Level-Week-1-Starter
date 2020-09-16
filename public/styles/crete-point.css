@@ -27,7 +27,7 @@ form legend h2 {
     font-size: 24px;
 }
 
-form legend span {
+form legend div {
     color: var(--title-color);
     font-size: 14px;
 }

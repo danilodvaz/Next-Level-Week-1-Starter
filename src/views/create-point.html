@@ -19,7 +19,7 @@
     <!-- Por padrão os formulários utilizam o method GET.
      Para usar o POST, deve ser adicionado a propriedade.
      A propriedade "action", é para onde o formulário vai enviar as informações. -->
-    <form action="/savepoint" method="POST">
+    <form action="/savepoint" method="POST" onsubmit="return validateItems();">
         <h1>Cadastro do ponto de coleta</h1>
 
         <fieldset><!--É uma coleção de campos. Poderia ser uma div, mas é aplicado a ideia de html semântico-->
@@ -76,7 +76,7 @@
         <fieldset>
             <legend>
                 <h2>Itens de coleta</h2>
-                <span>Selecione um ou mais itens abaixo</span>
+                <div>Selecione um ou mais itens abaixo</div>
             </legend>
 
             <div class="items-grid">

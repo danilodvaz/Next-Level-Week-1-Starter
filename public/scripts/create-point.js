@@ -82,5 +82,30 @@ function handleSelectedItem(event) {
         selectedItems.push(itemId);
     }
 
-    collectedItems.value = selectedItems;
+    collectedItems.value = selectedItems.join(", ");
+}
+
+function validateItems() {
+    if (!collectedItems.value) {
+        const legendItemsToCollect = document.querySelectorAll('#page-create-point form legend h2')[1];
+        const moreThanOneItem = document.querySelector('#page-create-point form legend div');
+        
+        // Move o scroll da tela para o elemento. O parâmetro smooth deixa mais suave a transição.
+        legendItemsToCollect.scrollIntoView({ behavior: 'smooth' });
+
+        // Adicionar um esquema para destacar a mensagem q deve ser adicionado um ou mais
+        moreThanOneItem.style.color = "red";
+        moreThanOneItem.animate([
+            { transform: "translateX(5px)" },
+            { transform: "translateX(-5px)" },
+            { transform: "translateX(5px)" }
+        ], {
+            duration: 400,
+            iterations: 5
+        });
+
+        return false;
+    }
+
+    return true;
 }
